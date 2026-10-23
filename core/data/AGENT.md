@@ -22,9 +22,10 @@ The `:core:data` module is responsible for data persistence, network operations,
    - Always map DTOs and Room Entities to Domain Models before returning them to `:core:domain` or `:core:presentation`.
    - Keep mappers as extension functions in `com.bystrov.sto.core.data.mapper`.
 
-4. **Exception Mapping**
-   - Catch network exceptions (Ktor `ResponseException`, `ConnectTimeoutException`), SQLite exceptions, and DataStore errors within `:core:data`.
-   - Wrap or convert exceptions into domain-specific result types (e.g., `Result<T>` or custom Domain Exception) before propagating upwards.
+4. **Exception Mapping & Result Wrappers**
+   - Catch network exceptions (Ktor `ResponseException`, `ConnectTimeoutException`, platform sockets) and local database errors within `:core:data`.
+   - Use `platformSafeCall` for HTTP requests to map exceptions and status codes to `Result<T, DataError.Remote>`.
+   - Always invoke `coroutineContext.ensureActive()` in generic catch blocks to preserve coroutine cancellation.
 
 ---
 
@@ -40,7 +41,9 @@ com.bystrov.sto.core.data/
 ├── network/             # Ktor HTTP Client & API Services
 │   ├── api/             # Ktor API interfaces/clients
 │   ├── model/           # Network DTOs (@Serializable)
-│   └── KtorClient.kt    # Ktor HttpClient configuration
+│   ├── HttpClientFactory.kt # Ktor HttpClient configuration & plugins
+│   ├── HttpClientExt.kt     # GET/POST/PUT/DELETE helpers & platformSafeCall
+│   └── UrlConstants.kt
 ├── datastore/           # DataStore Preferences
 │   └── CreateDataStore.kt
 ├── repository/          # Implementation of Domain Repositories
@@ -62,8 +65,8 @@ com.bystrov.sto.core.data/
 
 ### 2. Networking (Ktor 3.x)
 - Define DTOs in `network/model/` annotated with `@Serializable`.
-- Use explicit HTTP method calls (`client.get`, `client.post`) with type-safe request/response bodies.
-- Use `ContentNegotiation` with `Json` configured to `ignoreUnknownKeys = true`.
+- Use type-safe HTTP extensions (`httpClient.get`, `httpClient.post`) which wrap requests in `platformSafeCall` and map HTTP status codes to `Result<T, DataError.Remote>`.
+- Configure Ktor `Logging` via Kermit (`co.touchlab.kermit.Logger`) and `ContentNegotiation` with `Json` (`ignoreUnknownKeys = true`).
 
 ### 3. Key-Value Storage (DataStore Preferences)
 - Keep Preference keys internal or encapsulated in dedicated DataSource classes.
@@ -82,6 +85,8 @@ com.bystrov.sto.core.data/
       includes(targetDataModule)
       single<AppDatabase> { getRoomDatabase(get()) }
       single { get<AppDatabase>().userDao() }
+      single { HttpClientFactory() }
+      single<HttpClient> { get<HttpClientFactory>().create(engine = get()) }
       single<UserRepository> { UserRepositoryImpl(dao = get(), api = get()) }
   }
   ```

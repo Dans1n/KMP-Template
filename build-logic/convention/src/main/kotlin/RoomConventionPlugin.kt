@@ -20,12 +20,9 @@ class RoomConventionPlugin : Plugin<Project> {
             dependencies {
                 add("commonMainApi", libs.findLibrary("androidx-room-runtime").get())
                 add("commonMainApi", libs.findLibrary("sqlite-bundled").get())
-            }
-
-            configurations.configureEach {
-                if (name.startsWith("ksp") && !name.contains("Test")) {
-                    this@with.dependencies.add(name, libs.findLibrary("androidx-room-compiler").get())
-                }
+                add("kspAndroid", libs.findLibrary("androidx-room-compiler").get())
+                add("kspIosArm64", libs.findLibrary("androidx-room-compiler").get())
+                add("kspIosSimulatorArm64", libs.findLibrary("androidx-room-compiler").get())
             }
         }
     }

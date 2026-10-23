@@ -22,7 +22,7 @@
 ## Architectural Rules & Module Isolation
 
 1. **`:core:domain` (Pure Domain Layer)**
-   - Must contain ONLY pure Kotlin code (Entities, Repository Interfaces, Use Cases).
+   - Must contain ONLY pure Kotlin code (Entities, Repository Interfaces, Use Cases, `Result<D, E>`, `DataError`).
    - Strict Prohibition: NO Android, Compose, Room, DataStore, or Ktor dependencies here.
    - Uses `alias(libs.plugins.convention.kmp.library)`.
 
@@ -73,6 +73,7 @@
 - Use explicit return types for public functions and properties.
 - State Flow: Do NOT expose `MutableStateFlow` or `MutableSharedFlow` outside ViewModel/Repository. Always expose `asStateFlow()` or `asSharedFlow()`.
 - Explicitly pass `CoroutineDispatcher` where appropriate (`Dispatchers.IO`, `Dispatchers.Default`).
+- Error Handling: Prefer `Result<D, E : Error>` (with `DataError.Remote` or `DataError.Local`) for UseCases and Repository operations instead of throwing exceptions.
 
 ### Compose UI
 - All Composable functions should accept an optional `modifier: Modifier = Modifier` as their first optional parameter.
