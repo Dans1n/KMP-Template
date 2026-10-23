@@ -1,10 +1,10 @@
-# STO — Kotlin Multiplatform Clean Architecture Template
+# Kotlin Multiplatform Clean Architecture Template
 
 Готовый шаблон и стартовый комплект для создания кроссплатформенных мобильных приложений на **Kotlin Multiplatform (KMP)** и **Compose Multiplatform (CMP)** с архитектурой **Clean Architecture**.
 
 ---
 
-## 🚀 Быстрый старт: Инициализация нового проекта из шаблона
+## Быстрый старт: Инициализация нового проекта из шаблона
 
 Этот репозиторий настроен как шаблон. Чтобы создать на его основе новый проект:
 
@@ -23,7 +23,7 @@ python3 scripts/init_project.py --name "MyAwesomeApp" --package "com.company.mya
 
 ---
 
-## ⚡ Генерация новых фиче-модулей (`:feature:*`)
+## Генерация новых фиче-модулей (`:feature:*`)
 
 Для автоматического создания изолированного фиче-модуля запустите Gradle-таску:
 
@@ -42,7 +42,7 @@ python3 scripts/init_project.py --name "MyAwesomeApp" --package "com.company.mya
 
 ---
 
-## 🏛️ Архитектура и структура модулей
+## Архитектура и структура модулей
 
 ```
 .
@@ -61,7 +61,7 @@ python3 scripts/init_project.py --name "MyAwesomeApp" --package "com.company.mya
 
 ---
 
-## 🛠️ Сборка и запуск
+## Сборка и запуск
 
 ### Android App
 ```bash
