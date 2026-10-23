@@ -4,7 +4,7 @@
 The `:core:data` module is responsible for data persistence, network operations, key-value storage, and data mapping. It provides concrete implementations of the repository interfaces defined in `:core:domain`.
 
 - **Module Path:** `:core:data`
-- **Package:** `com.bystrov.sto.core.data`
+- **Package:** `com.company.template.core.data`
 - **Dependencies:** Depends on `:core:domain`. Must **NOT** depend on `:core:presentation`, `:core:designsystem`, or `:feature:*`.
 
 ---
@@ -20,7 +20,7 @@ The `:core:data` module is responsible for data persistence, network operations,
 
 3. **Data Mapping**
    - Always map DTOs and Room Entities to Domain Models before returning them to `:core:domain` or `:core:presentation`.
-   - Keep mappers as extension functions in `com.bystrov.sto.core.data.mapper`.
+   - Keep mappers as extension functions in `com.company.template.core.data.mapper`.
 
 4. **Exception Mapping & Result Wrappers**
    - Catch network exceptions (Ktor `ResponseException`, `ConnectTimeoutException`, platform sockets) and local database errors within `:core:data`.
@@ -32,7 +32,7 @@ The `:core:data` module is responsible for data persistence, network operations,
 ## Package Structure
 
 ```
-com.bystrov.sto.core.data/
+com.company.template.core.data/
 ├── database/            # Room Database setup, DAOs, Entities
 │   ├── dao/             # Room DAOs (e.g., UserDao.kt)
 │   ├── entity/          # Room @Entity data classes

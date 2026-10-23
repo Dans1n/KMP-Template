@@ -1,4 +1,4 @@
-rootProject.name = "STO"
+rootProject.name = "Template"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -37,3 +37,5 @@ include(":core:domain")
 include(":core:data")
 include(":core:designsystem")
 include(":core:presentation")
+
+include(":feature:example")

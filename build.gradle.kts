@@ -6,15 +6,21 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform) apply false
 }
 
+val rootDirectory = layout.projectDirectory.asFile
+val featureNameProvider = providers.gradleProperty("name")
+
 tasks.register("createFeatureModule") {
     group = "generation"
     description = "Generates a new feature module in the feature/ directory"
 
+    val rootDir = rootDirectory
+    val nameProp = featureNameProvider
+
     doLast {
-        val nameInput = project.findProperty("name")?.toString()
-            if (nameInput.isNullOrBlank()) {
-                throw IllegalArgumentException("Feature module name is required. Pass it via -Pname=<name> (e.g. ./gradlew createFeatureModule -Pname=profile)")
-            }
+        val nameInput = nameProp.orNull
+        if (nameInput.isNullOrBlank()) {
+            throw IllegalArgumentException("Feature module name is required. Pass it via -Pname=<name> (e.g. ./gradlew createFeatureModule -Pname=profile)")
+        }
 
         val rawName = nameInput.trim().lowercase()
         val pascalCaseName = rawName.split("-", "_").joinToString("") { part ->
@@ -22,7 +28,6 @@ tasks.register("createFeatureModule") {
         }
         val camelCaseName = pascalCaseName.replaceFirstChar { it.lowercase() }
 
-        val rootDir = project.rootDir
         val featureDir = File(rootDir, "feature/$rawName")
         if (featureDir.exists()) {
             println("⚠️ Feature module ':feature:$rawName' already exists at ${featureDir.path}")
@@ -43,7 +48,7 @@ tasks.register("createFeatureModule") {
                 break
             }
         }
-        val rootPackage = if (pathParts.isNotEmpty()) pathParts.joinToString(".") else "com.bystrov.sto"
+        val rootPackage = if (pathParts.isNotEmpty()) pathParts.joinToString(".") else "com.company.template"
         val featurePackage = "$rootPackage.feature.$rawName"
         val packagePath = featurePackage.replace('.', '/')
 

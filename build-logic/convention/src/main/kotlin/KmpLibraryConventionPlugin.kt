@@ -1,5 +1,5 @@
-import com.bystrov.sto.convention.configureKotlinMultiplatform
-import com.bystrov.sto.convention.libs
+import com.company.template.convention.configureKotlinMultiplatform
+import com.company.template.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.bystrov.sto.convention.configureIosTargets
-import com.bystrov.sto.convention.libs
+import com.company.template.convention.configureIosTargets
+import com.company.template.convention.libs
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -18,10 +18,10 @@ class CmpApplicationConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<ApplicationExtension> {
-                namespace = "com.bystrov.sto"
+                namespace = "com.company.template"
                 compileSdk = libs.findVersion("android-compileSdk").get().toString().toInt()
                 defaultConfig {
-                    applicationId = "com.bystrov.sto"
+                    applicationId = "com.company.template"
                     minSdk = libs.findVersion("android-minSdk").get().toString().toInt()
                     targetSdk = libs.findVersion("android-targetSdk").get().toString().toInt()
                     versionCode = 1

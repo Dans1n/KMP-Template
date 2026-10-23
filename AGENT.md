@@ -1,9 +1,9 @@
-# Project Rules for AI Assistant (STO Project)
+# Project Rules for AI Assistant (Template Project)
 
 ## Project Overview & Tech Stack
-- **Project Name:** STO
+- **Project Name:** Template
 - **Architecture:** Multi-module Clean Architecture + Kotlin Multiplatform (KMP) + Compose Multiplatform (CMP)
-- **Root Package:** `com.bystrov.sto`
+- **Root Package:** `com.company.template`
 - **Build System:** Gradle Kotlin DSL + Type-Safe Project Accessors (`projects.core.domain`) + Version Catalog (`gradle/libs.versions.toml`)
 - **Convention Plugins:** Located in `build-logic/convention`
 
@@ -89,4 +89,4 @@
 
 ## File Creation & Refactoring Rules for AI
 - Keep `build.gradle.kts` files concise (5–15 lines max) by leveraging convention plugins.
-- Keep package structure aligned with project path: `com.bystrov.sto.<module_path_with_dots>`.
+- Keep package structure aligned with project path: `com.company.template.<module_path_with_dots>`.

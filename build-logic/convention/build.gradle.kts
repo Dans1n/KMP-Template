@@ -7,7 +7,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.bystrov.sto.convention.buildlogic"
+group = "com.company.template.convention.buildlogic"
 
 dependencies {
     compileOnly(libs.plugins.kotlinMultiplatform.get().run { "$pluginId:$pluginId.gradle.plugin:${version.requiredVersion}" })
@@ -28,31 +28,31 @@ java {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = "com.bystrov.sto.convention.android.application"
+            id = "com.company.template.convention.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidComposeApplication") {
-            id = "com.bystrov.sto.convention.android.application.compose"
+            id = "com.company.template.convention.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
         register("cmpApplication") {
-            id = "com.bystrov.sto.convention.cmp.application"
+            id = "com.company.template.convention.cmp.application"
             implementationClass = "CmpApplicationConventionPlugin"
         }
         register("kmpLibrary") {
-            id = "com.bystrov.sto.convention.kmp.library"
+            id = "com.company.template.convention.kmp.library"
             implementationClass = "KmpLibraryConventionPlugin"
         }
         register("cmpLibrary") {
-            id = "com.bystrov.sto.convention.cmp.library"
+            id = "com.company.template.convention.cmp.library"
             implementationClass = "CmpLibraryConventionPlugin"
         }
         register("cmpFeature") {
-            id = "com.bystrov.sto.convention.cmp.feature"
+            id = "com.company.template.convention.cmp.feature"
             implementationClass = "CmpFeatureConventionPlugin"
         }
         register("room") {
-            id = "com.bystrov.sto.convention.room"
+            id = "com.company.template.convention.room"
             implementationClass = "RoomConventionPlugin"
         }
     }

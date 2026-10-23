@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.bystrov.sto.convention.configureKotlinAndroid
-import com.bystrov.sto.convention.libs
+import com.company.template.convention.configureKotlinAndroid
+import com.company.template.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -13,10 +13,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<ApplicationExtension> {
-                namespace = "com.bystrov.sto"
+                namespace = "com.company.template"
 
                 defaultConfig {
-                    applicationId = "com.bystrov.sto"
+                    applicationId = "com.company.template"
                     targetSdk = libs.findVersion("android-targetSdk").get().toString().toInt()
                     versionCode = 1
                     versionName = "1.0"

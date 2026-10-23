@@ -119,13 +119,13 @@ androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", vers
 
 [plugins]
 # Conventions
-convention-android-application = { id = "com.bystrov.sto.convention.android.application", version = "unspecified" }
-convention-android-application-compose = { id = "com.bystrov.sto.convention.android.application.compose", version = "unspecified" }
-convention-cmp-application = { id = "com.bystrov.sto.convention.cmp.application", version = "unspecified" }
-convention-kmp-library = { id = "com.bystrov.sto.convention.kmp.library", version = "unspecified" }
-convention-cmp-library = { id = "com.bystrov.sto.convention.cmp.library", version = "unspecified" }
-convention-cmp-feature = { id = "com.bystrov.sto.convention.cmp.feature", version = "unspecified" }
-convention-room = { id = "com.bystrov.sto.convention.room", version = "unspecified" }
+convention-android-application = { id = "com.company.template.convention.android.application", version = "unspecified" }
+convention-android-application-compose = { id = "com.company.template.convention.android.application.compose", version = "unspecified" }
+convention-cmp-application = { id = "com.company.template.convention.cmp.application", version = "unspecified" }
+convention-kmp-library = { id = "com.company.template.convention.kmp.library", version = "unspecified" }
+convention-cmp-library = { id = "com.company.template.convention.cmp.library", version = "unspecified" }
+convention-cmp-feature = { id = "com.company.template.convention.cmp.feature", version = "unspecified" }
+convention-room = { id = "com.company.template.convention.room", version = "unspecified" }
 
 # Android
 androidApplication = { id = "com.android.application", version.ref = "agp" }
