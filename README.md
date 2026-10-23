@@ -1,6 +1,6 @@
 # Kotlin Multiplatform Clean Architecture Template
 
-Готовый шаблон и стартовый комплект для создания кроссплатформенных мобильных приложений на **Kotlin Multiplatform (KMP)** и **Compose Multiplatform (CMP)** с архитектурой **Clean Architecture**.
+Готовый шаблон и стартовый комплект для создания кроссплатформенных мобильных приложений на **Kotlin Multiplatform (KMP)** и **Compose Multiplatform (CMP)** с архитектурой **MVI**.
 
 ---
 
