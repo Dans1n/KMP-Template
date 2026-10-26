@@ -87,6 +87,7 @@
 
 ---
 
-## File Creation & Refactoring Rules for AI
+## Command Execution & AI Tooling Rules
+- **Gradle & Shell Commands:** Always run Gradle tasks and CLI commands in quiet mode using `--quiet` (or `-q`) flag (e.g. `./gradlew assembleDebug --quiet`) to minimize unnecessary output clutter and maintain clean logs.
 - Keep `build.gradle.kts` files concise (5–15 lines max) by leveraging convention plugins.
 - Keep package structure aligned with project path: `com.company.template.<module_path_with_dots>`.

@@ -19,7 +19,7 @@ python3 scripts/init_project.py --name "MyAwesomeApp" --package "com.company.mya
 - Заменит root package (`com.company.template` $\to$ `com.company.myawesomeapp`).
 - Заменит название проекта (`Template` $\to$ `MyAwesomeApp`).
 - Переместит исходный код в соответствующие каталоги пакета.
-- Обновит `settings.gradle.kts`, `libs.versions.toml`, `build-logic`, `AGENT.md` и iOS-конфигурации.
+- Обновит `settings.gradle.kts`, `libs.versions.toml`, `build-logic`, `AGENTS.md` и iOS-конфигурации.
 
 ---
 

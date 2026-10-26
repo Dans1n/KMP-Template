@@ -78,6 +78,11 @@ com.company.template.core.data/
 
 ---
 
+## Command Execution & AI Tooling Rules
+- **Gradle & Shell Commands:** Always run Gradle tasks and CLI commands in quiet mode using `--quiet` (or `-q`) flag (e.g. `./gradlew assembleDebug --quiet`) to minimize log output clutter.
+
+---
+
 ## Dependency Injection (Koin)
 - Register all DataSources, DAOs, Ktor clients, and Repository implementations in `dataModule`:
   ```kotlin
